@@ -213,7 +213,19 @@ var inventory = [
 */
 function sortCarInventory(inventory/* code here */) {
   /* code here */
-  return sortCarInventory(inventory.car_model)
+  function compare (a,b){
+    const modelA = a.car_model;
+    const modelB = b.car_model;
+    let comparison = 0;
+    if (modelA > modelB){
+      comparison = 1;
+    } else if (modelA < modelB){
+      comparison = -1;
+
+    }
+    return comparison;
+  }
+  return inventory.sort(compare);
 }
 
 /**
@@ -248,8 +260,18 @@ function getModelYears(inventory/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
+function getOlderCars(inventory, yearmax/* code here */) {
   /* code here */
+  var arr =[];
+  var i;
+  for ( let i = 0; i < inventory.length; i++){
+    if (inventory[i].car_year <= yearmax){
+      arr.push(inventory[i])
+    }
+   
+  }
+  return arr;
+
 }
 
 /**
@@ -265,11 +287,12 @@ function getOlderCars(/* code here */) {
 */
 function getGermanCars(inventory/* code here */) {
   /* code here */
-  const GermanMade = [`Audi`, `Mercedes-Benz` , `Volkswagen` , `BMW`];
+ // const GermanMade = [`AUDI`, `MERCEDES-BENZ` , `VOLKSWAGEN` , `BMW`];
+ const GermanMade = [`Audi` , `Mercedes-Benz` , `Volkswagen` , `BMW`];
   var GermanCars = [];
-    for (let i=0; i<inventory.length, i++)  { 
-      if (GermanMade.includes(inventory[i].car_model)){
-    GermanCars.push(inventory[i]) 
+    for (let i=0; i < inventory.length; i++)  { 
+      if (GermanMade.includes(inventory[i].car_make )){
+    GermanCars.push(inventory[i]) ;
   }
     
   }
