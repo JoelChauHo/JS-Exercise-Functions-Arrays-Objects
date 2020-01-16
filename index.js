@@ -82,7 +82,7 @@ function getName(object /* code here */) {
 function makeSmartPerson(name/* code here */) {
   /* code here */
   var  person ={
-    name: "name",
+    name: name,
     sum: function(a,b){
       return a+b;
     },
@@ -349,8 +349,18 @@ const argTimesTwo = (a) => {return a*2};
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
+function carMaker(number/* code here */) {
   /* code here */
+  var object ={
+    odometer: number,
+    drive: function(distance){
+      return object.odometer += distance;
+      
+    }
+   
+
+  }
+  return object;
 }
 
 /// ////// END OF CHALLENGE /////////
